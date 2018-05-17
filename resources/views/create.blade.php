@@ -11,6 +11,7 @@
 
             <div id="RequestLog"></div>
             <form action="#" class="form-gorizontal" id="createRequest">
+                {{--<input type="hidden" name="_token" value="{{csrf_token()}}">--}}
                 <label for="">Имя клиента</label>
                 <input type="text" class="form-control" name="first-name" placeholder="Имя клиента" value="">
                 <label for="">Фамилия клиента</label>
@@ -25,7 +26,7 @@
                 <input type="text" class="form-control" name="cost" placeholder="Сумма" value="" style="width: 20%;">
 
                 <br>
-                <input type="submit" value="Отправить" class="btn btn-success">
+                <input id="createRequestButton" value="Отправить" class="btn btn-success">
                 <input class="btn btn-default" type='reset' value='Очистить' name='reset'>
             </form>
         </div>
