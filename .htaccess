@@ -1,0 +1,7 @@
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule    ^$    public/    [L]
+    RewriteRule ^(.*)$ public/$1 [L]
+    Redirect 301 /register http://mastera-kovki.com/public/login
+    Redirect 301 /public/register http://mastera-kovki.com/public/login
+</IfModule>
