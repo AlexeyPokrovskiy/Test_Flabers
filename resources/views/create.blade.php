@@ -11,11 +11,11 @@
 
             <div id="RequestLog"></div>
             <form action="#" class="form-gorizontal" id="createRequest">
-                {{--<input type="hidden" name="_token" value="{{csrf_token()}}">--}}
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <label for="">Имя клиента</label>
-                <input type="text" class="form-control" name="first-name" placeholder="Имя клиента" value="">
+                <input type="text" class="form-control" name="firstname" placeholder="Имя клиента" value="">
                 <label for="">Фамилия клиента</label>
-                <input type="text" class="form-control" name="second-name" placeholder="Фамилия клиента" value="">
+                <input type="text" class="form-control" name="secondname" placeholder="Фамилия клиента" value="">
                 <label for="">Номер телефона</label>
                 <input type="tel" class="form-control" name="tel" placeholder="Номер телефона" value="">
                 <label for="">Эл.почта</label>
