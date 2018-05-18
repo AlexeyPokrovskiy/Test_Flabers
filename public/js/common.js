@@ -1,12 +1,23 @@
 $(document).ready(function () {
-    Dollar();
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
         }
     });
 
+    function Dollar() {
 
+        $.ajax({
+            type: "POST",
+            url: "ApiPb",
+            success: function (data) {
+                var json=data;
+                grn=$('#TotalCost').html();
+                $('#TotalCostDollar').html((grn/json[0].sale).toFixed(3));
+            }
+        });
+    }
+    Dollar();
 
 
     $('#createRequestButton').click(function () {
@@ -54,25 +65,12 @@ $(document).ready(function () {
             $('#RequestTable').html(message);
             $('#TotalCost').html(totalcost);
             $('#TotalItem').html(json.length);
+            Dollar();
         })
 
     });
 
-    function Dollar() {
 
-        $.post('ApiPb','string', function (data) {
-            var json=JSON.parse(data);
-            console.log(1);
-            grn=$('#TotalCost').html();
-            $('#TotalCostDollar').html(json[0].sale*grn);
-        })
-
-
-
-
-
-        // console.log($('#TotalCost').html());
-    }
 
 
 

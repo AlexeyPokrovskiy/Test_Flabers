@@ -76,7 +76,7 @@ class ReportController extends Controller
         }
     }
 
-    public function ApiPb(Request $request){
+    public function ApiPb(){
        return json_decode(file_get_contents('https://api.privatbank.ua/p24api/pubinfo?json&exchange&coursid=5'), true);
     }
 
