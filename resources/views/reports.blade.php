@@ -10,15 +10,16 @@
             </div>
 
 
-            <form action="" class="form-inline" >
+            <form action="" class="form-inline" id="ListReport">
                 <label for="">№ заказа</label>
-                <input type="text" class="form-control" name="id" placeholder="№ заказа" value="" style="width: 20%;">
+                <input type="text" class="form-control" id="orderId" name="id" placeholder="№ заказа" value="" style="width: 20%;">
                 <label for="">Город</label>
                 <input type="text" class="form-control" name="city" placeholder="Город" value="" style="width: 20%;">
                 <label for="">Сумма заказа</label>
                 <select name="cost" id="" class="form-control" style="width: 20%;">
+                    <option value="0" selected></option>
                     <option value="100">До 100</option>
-                    <option value="300">До 500</option>
+                    <option value="500">До 500</option>
                     <option value="1000">До 1000</option>
                     <option value="5000">До 5000</option>
                 </select>
@@ -26,16 +27,28 @@
 
                 <br>
                 <br>
-                <div class="btn btn-success">Найти</div>
+                <div id="ButtonListReport" class="btn btn-success">Найти</div>
 
             </form>
         </div>
     </div>
     <div class="container">
         <div class="row">
-            <h2> Найдено 10</h2>
-            <p>На сумму 123 456,67 гривен или $4748.33</p>
+            <h2> Найдено <span id="TotalItem">{{count($reports)}}</span></h2>
+            <p>На сумму
+                <span id="TotalCost">
+
+                    @foreach($reports as $report)
+                    @php
+                        $sum+=$report->cost;
+                    @endphp
+                    @endforeach
+                    {{$sum}}
+                </span>
+                гривен или $<span id="TotalCostDollar"></span></p>
+
             <div class="col-xs-12">
+
                 <table class="table">
                     <thead>
                     <tr>
@@ -48,20 +61,29 @@
                         <th>Сумма</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Диана</td>
-                        <td>Захарова</td>
-                        <td>380671234567</td>
-                        <td>user@gmail.com</td>
-                        <td>Киев</td>
-                        <td>321,23</td>
+                    <tbody id="RequestTable">
+                    @foreach($reports as $report)
+                        <tr>
+                            <th scope="row">{{$report->id}}</th>
+                            <td>{{$report->firstname}}</td>
+                            <td>{{$report->secondname}}</td>
+                            <td>{{$report->tel}}</td>
+                            <td>{{$report->email}}</td>
+                            <td>{{$report->city}}</td>
+                            <td>{{$report->cost}}</td>
 
-                    </tr>
-
+                        </tr>
+                    @endforeach
                     </tbody>
                 </table>
+                <tr>
+                    <td colspan="3">
+                        <ul class="pagination pull-center">
+                            {{$reports->links()}}
+                        </ul>
+
+                    </td>
+                </tr>
             </div>
         </div>
     </div>

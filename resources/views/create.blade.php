@@ -8,21 +8,8 @@
             <div class="col-xs-12">
                 <h2>Создать</h2>
             </div>
-
-            <div class="col-xs-12" id="RequestLog">
-
+            <div class="col-xs-12" id="RequestLog" >
             </div>
-            {{--<div class="col-xs-12">--}}
-                {{--@if(count($errors))--}}
-                    {{--<div class="alert alert-success" role="alert">--}}
-                        {{--<ul>--}}
-                            {{--@foreach($errors->all() as $error)--}}
-                                {{--<li>{{$error}}</li>--}}
-                            {{--@endforeach--}}
-                        {{--</ul>--}}
-                    {{--</div>--}}
-                {{--@endif--}}
-            {{--</div>--}}
             <form action="#" class="form-gorizontal" id="createRequest">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <label for="">Имя клиента</label>
@@ -30,7 +17,7 @@
                 <label for="">Фамилия клиента</label>
                 <input type="text" class="form-control" name="secondname" placeholder="Фамилия клиента" value="">
                 <label for="">Номер телефона</label>
-                <input type="tel" class="form-control" name="tel" placeholder="Номер телефона" value="">
+                <input type="tel" class="form-control" name="tel" placeholder="Номер телефона" value="+380">
                 <label for="">Эл.почта</label>
                 <input type="email" class="form-control" name="email" placeholder="Эл.почта" value="">
                 <label for="">Город</label>
