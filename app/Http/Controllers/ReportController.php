@@ -57,7 +57,7 @@ class ReportController extends Controller
         if($request->ajax()) {
 
             if($request->id){
-                return  json_encode(Report::find($request->id));
+                return  json_encode(Report::where('id', '=', $request->id)->get());
             }
             else{
                 if($request->cost and $request->city){

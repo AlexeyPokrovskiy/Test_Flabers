@@ -23,7 +23,6 @@ $(document).ready(function () {
     $('#createRequestButton').click(function () {
         var form_data = $("#createRequest").serialize();
         $.post('addReport',form_data, function (data) {
-            console.log(data);
             var json=JSON.parse(data);
             if (typeof json.success != "undefined") {
                 var message="<div class=\"alert alert-success\" role=\"alert\"><ul>";
@@ -46,8 +45,6 @@ $(document).ready(function () {
     $('#ButtonListReport').click(function () {
         var form_data = $("#ListReport").serialize();
         $.post('ListReport',form_data, function (data) {
-            console.log(data);
-
             var json=JSON.parse(data);
             message="";
             totalcost=0;
@@ -59,9 +56,6 @@ $(document).ready(function () {
                 });
                 message+="</tr>";
             }
-
-            // console.log( message);
-            console.log(totalcost);
             $('#RequestTable').html(message);
             $('#TotalCost').html(totalcost);
             $('#TotalItem').html(json.length);
