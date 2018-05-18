@@ -9,7 +9,20 @@
                 <h2>Создать</h2>
             </div>
 
-            <div id="RequestLog"></div>
+            <div class="col-xs-12" id="RequestLog">
+
+            </div>
+            {{--<div class="col-xs-12">--}}
+                {{--@if(count($errors))--}}
+                    {{--<div class="alert alert-success" role="alert">--}}
+                        {{--<ul>--}}
+                            {{--@foreach($errors->all() as $error)--}}
+                                {{--<li>{{$error}}</li>--}}
+                            {{--@endforeach--}}
+                        {{--</ul>--}}
+                    {{--</div>--}}
+                {{--@endif--}}
+            {{--</div>--}}
             <form action="#" class="form-gorizontal" id="createRequest">
                 <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <label for="">Имя клиента</label>

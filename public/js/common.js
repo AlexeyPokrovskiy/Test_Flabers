@@ -24,12 +24,26 @@ $(document).ready(function () {
 
     $('#createRequestButton').click(function () {
         var form_data = $("#createRequest").serialize();
-        $.post('store',form_data, function (data) {
+        $.post('addReport',form_data, function (data) {
             console.log(data);
 
             $('#RequestLog').html(data);
         })
-        // console.log(form_data);
+
     });
+
+
+    // $('#createRequestButton').click(function () {
+    //     var form_data = $('#createRequest').serialize();
+    //     $.ajax({
+    //         type: "POST",
+    //         url: "addReport",
+    //         date: form_data,
+    //         success: function (data) {
+    //             console.log(data);
+    //             $('#RequestLog').html(data);
+    //         }
+    //     });
+    // });
 
     });
