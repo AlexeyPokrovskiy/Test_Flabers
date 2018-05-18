@@ -41,11 +41,11 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li>
-                        <a href="{{ url('/') }}" class="dropdown-toggle">Создать</a>
+                        <a href="{{ route('report.index') }}" class="dropdown-toggle">Создать</a>
 
                     </li>
                     <li>
-                        <a href="{{ url('/reports') }}" class="dropdown-toggle" >Отчет</a>
+                        <a href="{{ route('report.reports') }}" class="dropdown-toggle" >Отчет</a>
                     </li>
 
                 </ul>
@@ -61,5 +61,6 @@
 
 
     <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/common.js') }}"></script>
 </body>
 </html>

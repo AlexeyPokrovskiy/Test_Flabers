@@ -9,12 +9,26 @@
                 <h2>Создать</h2>
             </div>
 
+            <div class="col-xs-12" id="RequestLog">
 
-            <form action="" class="form-gorizontal">
+            </div>
+            {{--<div class="col-xs-12">--}}
+                {{--@if(count($errors))--}}
+                    {{--<div class="alert alert-success" role="alert">--}}
+                        {{--<ul>--}}
+                            {{--@foreach($errors->all() as $error)--}}
+                                {{--<li>{{$error}}</li>--}}
+                            {{--@endforeach--}}
+                        {{--</ul>--}}
+                    {{--</div>--}}
+                {{--@endif--}}
+            {{--</div>--}}
+            <form action="#" class="form-gorizontal" id="createRequest">
+                <input type="hidden" name="_token" value="{{csrf_token()}}">
                 <label for="">Имя клиента</label>
-                <input type="text" class="form-control" name="first-name" placeholder="Имя клиента" value="">
+                <input type="text" class="form-control" name="firstname" placeholder="Имя клиента" value="">
                 <label for="">Фамилия клиента</label>
-                <input type="text" class="form-control" name="second-name" placeholder="Фамилия клиента" value="">
+                <input type="text" class="form-control" name="secondname" placeholder="Фамилия клиента" value="">
                 <label for="">Номер телефона</label>
                 <input type="tel" class="form-control" name="tel" placeholder="Номер телефона" value="">
                 <label for="">Эл.почта</label>
@@ -25,7 +39,7 @@
                 <input type="text" class="form-control" name="cost" placeholder="Сумма" value="" style="width: 20%;">
 
                 <br>
-                <div class="btn btn-success">Отправить</div>
+                <input id="createRequestButton" value="Отправить" class="btn btn-success">
                 <input class="btn btn-default" type='reset' value='Очистить' name='reset'>
             </form>
         </div>
